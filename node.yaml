@@ -1,0 +1,34 @@
+---
+- name: Deploy Node App
+  hosts: all
+  become: true
+  tasks:
+    - name: Install Npm
+      apt:
+        name: npm
+        state: present
+    - name: Cloning Repo
+      shell:
+        cmd: git clone https://github.com/verma-kunal/AWS-Session.git
+    - name: Changing dir
+      shell:
+        cmd: cd AWS-Session
+    - name: Create ENV
+      ansible.builtin.copy:
+        src: /home/ubuntu/.env
+        dest: /home/ubuntu/AWS-Session
+    - name: Install Express
+      shell:
+        cmd: npm install express
+    - name: Install Dotenv
+      shell:
+        cmd: npm install dotenv
+    - name: Install Stripe
+      shell:
+        cmd: npm install stripe
+    - name: Install Modules
+      shell:
+        cmd: npm install
+    - name: Start Server
+      shell:
+        cmd: npm run start
