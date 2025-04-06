@@ -1,4 +1,4 @@
 export default function Label(props) {
-    const { cn, text, htmlFor } = props;
-    return <label className={cn} htmlFor={htmlFor}>{text}</label>
+    const { cn, children, htmlFor } = props;
+    return <label className={cn} htmlFor={htmlFor}>{children}</label>
 }
