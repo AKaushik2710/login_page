@@ -13,21 +13,26 @@ export default function Login_State(){
         }]);
 
     function handlePass(e){
-        visibility[1].type === "password" ? setVisibility([...visibility, {parent : "col", pass : "form-label", float : false, type : "text"}]) : setVisibility([...visibility, {parent : "col", pass : "form-label", float : false, type : "password"}]);
+        let trial = [...visibility]
+        visibility[1].type === "password" ? setVisibility([trial[0], {parent : "col", pass : "form-label", float : false, type : "text"}]) : setVisibility([trial[0], {parent : "col", pass : "form-label", float : false, type : "password"}]);
     }
 
-    function handleInput(e){
-        switch (e[0]){
-            case "log":
-                e[1] ? setVisibility([...visibility,{parent : "col",log : "form-label", float : false}]) : setVisibility([...visibility, {parent : "col form-floating", log : "form-label visually-hidden", float : true}]);
-                console.log("ged");
-                break;
-            case "pass":
-                e[1] ? setVisibility([...visibility,{parent : "col",pass : "form-label", float : false}]) : setVisibility([...visibility, {parent : "col form-floating", pass : "form-label visually-hidden", float : true}]);
-                break;
-            default:
-                break;
-        }
+    function handleInput(e) {
+        const [field, isFocused] = e;
+    
+        setVisibility((prevVisibility) =>
+            prevVisibility.map((item, index) => {
+                if ((field === "log" && index === 0) || (field === "pass" && index === 1)) {
+                    return {
+                        ...item,
+                        parent: isFocused ? "col form-floating" : "col",
+                        [field]: isFocused ? "form-label visually-hidden" : "form-label",
+                        float: isFocused,
+                    };
+                }
+                return item; // Return the unchanged object for other fields
+            })
+        );
     }
     return {visibility, handleInput, handlePass}
 }
