@@ -8,8 +8,13 @@ export default function Login_State(){
     },{
             parent : "col",
             pass : "form-label",
-            float : false
+            float : false,
+            type : "password"
         }]);
+
+    function handlePass(e){
+        visibility[1].type === "password" ? setVisibility([...visibility, {parent : "col", pass : "form-label", float : false, type : "text"}]) : setVisibility([...visibility, {parent : "col", pass : "form-label", float : false, type : "password"}]);
+    }
 
     function handleInput(e){
         switch (e[0]){
@@ -24,5 +29,5 @@ export default function Login_State(){
                 break;
         }
     }
-    return {visibility, handleInput}
+    return {visibility, handleInput, handlePass}
 }
