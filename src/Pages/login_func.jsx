@@ -1,5 +1,7 @@
 import { useState } from "react";
 
+// Login_State Component
+// This component is responsible for managing the state of the login form
 export default function Login_State(){
     const [visibility, setVisibility] = useState([{
         parent : "col",
@@ -13,8 +15,33 @@ export default function Login_State(){
         }]);
 
     function handlePass(e){
-        let trial = [...visibility]
-        visibility[1].type === "password" ? setVisibility([trial[0], {parent : "col", pass : "form-label", float : false, type : "text"}]) : setVisibility([trial[0], {parent : "col", pass : "form-label", float : false, type : "password"}]);
+        // let trial = [...visibility]
+        if(visibility[1].type === "password"){
+            setVisibility((prevVisibility)=>{
+                return prevVisibility.map((item, index)=>{
+                    if(index === 1){
+                        return {
+                            ...item,
+                            type : "text"
+                        }
+                    }
+                    return item;
+                })
+            })
+        }
+        else{
+            setVisibility((prevVisibility)=>{
+                return prevVisibility.map((item, index)=>{
+                    if(index === 1){
+                        return {
+                            ...item,
+                            type : "password"
+                        }
+                    }
+                    return item;
+                })
+            })
+        }
     }
 
     function handleInput(e) {
