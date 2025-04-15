@@ -1,6 +1,7 @@
 import components from "../Components/components"
 import Login_State from "./login_func"
 import "./login.css"
+
 // Login Page Component
 // This component is responsible for rendering the login form and handling user input
 export default function Login (){
@@ -8,10 +9,13 @@ export default function Login (){
     const {visibility, handleInput, handlePass} = Login_State();
     return (
         <>
-            <Div cn="container-fluid host border-top bg-primary ">
+            <Div cn="container-fluid bg-dark ">
                 <Div cn="row vh-100">
-                    <Div cn=" col-6 d-flex bg-primary h-100 justify-content-center align-items-center">
-                        <Div cn="card shadow w-50 h-50 p-3">
+                    <Div cn="col-6 p-0 bg-primary">
+                        <Div cn="h-100 d-flex flex-column">
+                            <Div cn="h-10 change"></Div>
+                            <Div cn="h-90 d-flex justify-content-center align-items-center">
+                            <Div cn="card shadow w-50 h-50 p-3">
                             <Div cn="d-flex flex-column justify-content-evenly p-3 h-100">
                                 <Div cn=" p-2">
                                     <Div cn={visibility[0].parent}>
@@ -50,12 +54,25 @@ export default function Login (){
                                     </Div>
                                 </Div>
                             </Div>
+                            </Div>
+                            </Div>
+                            <Div cn="h-10 change-y"></Div>
                         </Div>
                     </Div>
-                    <Div cn="col-6 bg-warning ">
+                    <Div cn="col-6 p-0 bg-warning">
+                        <Div cn="h-100 d-flex flex-column">
+                            <Div cn="h-10 change"></Div>
+                            <Div cn="h-90"></Div>
+                            <Div cn="h-10 change-y"></Div>
+                        </Div>
                     </Div>
                 </Div>
             </Div>
         </>
     )
 }
+
+
+/*
+
+*/

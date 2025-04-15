@@ -1,12 +1,22 @@
-// $border-width :             15px;
-// $border-color : #0d6efd;
-// $border-style : solid;
-// $utilities: (
-//   "border-top" : (
-//     property : "border-top",
-//     values : (
-//         null : $border-width  $border-style  $border-color,
-//         0 : 0
-//     )
-//   )
-// );
+@import "../node_modules/bootstrap/scss/bootstrap";
+@import "../node_modules/bootstrap/scss/variables";
+@import "../node_modules/bootstrap/scss/utilities";
+
+$border-width: 15px;
+$border-color: #0d6efd;
+$border-style: solid;
+
+$utilities: map-merge(
+  $utilities,
+  (
+    "border-top": (
+      property: border-top,
+      class: "border-top",
+      values: (
+        default: #{$border-width} #{$border-style} #{$border-color}, // Default value
+        0: 0 // No border
+      )
+    )
+  )
+);
+
