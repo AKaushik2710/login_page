@@ -1,0 +1,47 @@
+
+ *{
+    box-sizing: border-box;
+ }
+.row{
+    box-sizing: border-box;
+}
+
+.h-10{
+    height: 5dvh;
+}
+.h-90{
+    height: 90dvh;
+}
+
+@keyframes b2y {
+    0%{ background-color: #0d6efd;}
+    20%{ background-color: #0d6efd;}
+    50%{ background-color: #ffc107;}
+    75%{background-color: #ffc107;}
+    99%{ background-color: #0d6efd;}
+}
+
+@keyframes y2b {
+    0%{ background-color: #ffc107;}
+
+    75%{background-color: #0d6efd;}
+    99%{ background-color: #ffc107;}
+}
+
+.change{
+    background-color: #0d6efd;
+    animation-name: b2y;
+    animation-duration: 2s;
+    animation-delay: -1s;
+    animation-timing-function: ease-in-out;
+    animation-iteration-count: infinite;
+}
+
+.change-y{
+    background-color: #0d6efd;
+    animation-name: y2b;
+    animation-duration: 2s;
+    animation-delay: -1s;
+    animation-timing-function: ease-in-out;
+    animation-iteration-count: infinite;
+}
