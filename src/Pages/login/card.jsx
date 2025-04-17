@@ -14,8 +14,8 @@ export default function Card(){
                         cn={visibility.fields.log[1]}
                         type="text"
                         id="log_name"
-                        onFocus={() => handleInput(["log", true])}
-                        onBlur={() => handleInput(["log", false])}
+                        onFocus={() => handleFields(["log", true])}
+                        onBlur={() => handleFields(["log", false])}
                         placeholder="Enter your name"
                     />
                 </Div>
@@ -28,8 +28,8 @@ export default function Card(){
                             cn={visibility.fields.pass[1]}
                             type={visibility.fields.pass[2]}
                             id="log_pass"
-                            onFocus={() => handleInput(["pass", true])}
-                            onBlur={() => handleInput(["pass", false])}
+                            onFocus={() => handleFields(["pass", true])}
+                            onBlur={() => handleFields(["pass", false])}
                             placeholder="Password"
                         />
                         <Button cn="btn btn-outline-secondary" onClick={handlePass} type="button" id="button-addon2">{"Show"}</Button>

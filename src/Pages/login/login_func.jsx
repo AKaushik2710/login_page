@@ -16,14 +16,14 @@ export default function Login_State(){
             setVisibility((prevVisibility)=>{
                 return {...prevVisibility, fields : {
                     ...prevVisibility.fields,
-                    log : [prevVisibility.fields.log.map((items, index)=>{
+                    log : prevVisibility.fields.log.map((items, index)=>{
                         if(index === 1){
                             return item[1] ? "form-control bg-warning text-dark" : "form-control bg-dark text-white";
                         }
                         else{
                             return items;
                         }
-                    })]
+                    })
                 }
                 }
             }
@@ -33,14 +33,14 @@ export default function Login_State(){
             setVisibility((prevVisibility)=>{
                 return {...prevVisibility, fields : {
                     ...prevVisibility.fields,
-                    pass : [prevVisibility.fields.pass.map((items, index)=>{
+                    pass : prevVisibility.fields.pass.map((items, index)=>{
                         if(index === 1){
                             return item[1] ? "form-control bg-warning text-dark" : "form-control bg-dark text-white";
                         }
                         else{
                             return items;
                         }
-                    })]
+                    })
                 }
                 }
             }
@@ -51,48 +51,50 @@ export default function Login_State(){
     function handleHover(out=false){
         if(out){
             setVisibility((prevVisibility)=>{
-                return {parent : "card-shadow w-50 h-50 p-3 bg-warning",
+                return {...prevVisibility,
+                    parent : "card-shadow w-50 h-50 p-3 bg-warning",
                     fields : {
-                        log : [prevVisibility.fields.log.map((items, index)=>{
+                        log : prevVisibility.fields.log.map((items, index)=>{
                             if(index === 0){
                                 return "form-label text-dark";
                             }
                             else{
                                 return items;
                             }
-                        })],
-                        pass : [prevVisibility.fields.pass.map((items, index)=>{
+                        }),
+                        pass : prevVisibility.fields.pass.map((items, index)=>{
                             if(index === 0){
                                 return "form-label text-dark";
                             }
                             else{
                                 return items;
                             }
-                        })]
+                        })
                     }
                 }
             })
         }
         else{
             setVisibility((prevVisibility)=>{
-                return {parent : "card shadow w-50 h-50 p-3 bg-dark",
+                return {...prevVisibility,
+                    parent : "card shadow w-50 h-50 p-3 bg-dark",
                     fields : {
-                        log : [prevVisibility.fields.log.map((items, index)=>{
+                        log : prevVisibility.fields.log.map((items, index)=>{
                             if(index === 0){
                                 return "form-label text-warning";
                             }
                             else{
                                 return items;
                             }
-                        })],
-                        pass : [prevVisibility.fields.pass.map((items, index)=>{
+                        }),
+                        pass : prevVisibility.fields.pass.map((items, index)=>{
                             if(index === 0){
                                 return "form-label text-warning";
                             }
                             else{
                                 return items;
                             }
-                        })]
+                        })
                     }
                 }
 
@@ -104,14 +106,14 @@ export default function Login_State(){
         setVisibility((prevVisibility)=>{
             return {...prevVisibility, fields : {
                 ...prevVisibility.fields,
-                pass : [prevVisibility.fields.pass.map((items, index)=>{
+                pass : prevVisibility.fields.pass.map((items, index)=>{
                     if(index === 2){
                         return items === "password" ? "text" : "password";
                     }
                     else{
                         return items;
                     }
-                })]
+                })
             }
             }
         })
