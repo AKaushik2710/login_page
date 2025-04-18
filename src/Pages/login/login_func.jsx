@@ -6,7 +6,7 @@ export default function Login_State(){
     const [visibility, setVisibility] = useState({
         parent : "card shadow w-50 h-50 p-3 bg-warning",
         fields : {
-            log : ["form-label text-dark", "form-control bg-dark text-white"],
+            log : ["form-label text-dark", "form-control bg-dark text-white", "btn btn-outline-secondary bg-dark text-warning"],
             pass : ["form-label text-dark", "form-control bg-dark text-white","password"]
         }
     })
@@ -58,13 +58,19 @@ export default function Login_State(){
                             if(index === 0){
                                 return "form-label text-dark";
                             }
+                            else if(index === 1){
+                                return "form-control bg-dark text-white";
+                            }
                             else{
-                                return items;
+                                return "btn btn-outline-secondary bg-dark text-warning";
                             }
                         }),
                         pass : prevVisibility.fields.pass.map((items, index)=>{
                             if(index === 0){
                                 return "form-label text-dark";
+                            }
+                            else if(index === 1){
+                                return "form-control bg-dark text-white";
                             }
                             else{
                                 return items;
@@ -83,13 +89,19 @@ export default function Login_State(){
                             if(index === 0){
                                 return "form-label text-warning";
                             }
+                            else if(index === 1){
+                                return "form-control bg-warning text-dark";
+                            }
                             else{
-                                return items;
+                                return "btn btn-outline-secondary bg-warning text-dark";
                             }
                         }),
                         pass : prevVisibility.fields.pass.map((items, index)=>{
                             if(index === 0){
                                 return "form-label text-warning";
+                            }
+                            else if(index === 1){
+                                return "form-control bg-warning text-dark";
                             }
                             else{
                                 return items;
